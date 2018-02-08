@@ -105,7 +105,10 @@ public class MapViewActivity extends AppCompatActivity implements OnMapReadyCall
     public void openGoogleMap(View view){
         LatLng ll = new LatLng(22.2793700000,114.1627800000);
             if (isAvilible(MapViewActivity.this, "com.google.android.apps.maps")) {
-                Uri gmmIntentUri = Uri.parse("google.navigation:q=" + ll.latitude + "," + ll.longitude);
+
+//              导航  Uri gmmIntentUri = Uri.parse("google.navigation:q=" + ll.latitude + "," + ll.longitude);
+                //查找指定位置
+                Uri gmmIntentUri = Uri.parse("geo:q=" + ll.latitude + "," + ll.longitude);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
